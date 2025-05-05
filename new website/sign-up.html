@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ImmerseBlue | Sign Up</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+  <style>
+    /* ===== Global & Navbar ===== */
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #0b0d2b, #11133c);
+      color: white;
+      overflow-x: hidden;
+      position: relative;
+    }
+    body::before, body::after {
+      content: '';
+      position: absolute;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(0,207,255,0.07), transparent);
+      border-radius: 50%;
+      z-index: 0;
+    }
+    body::before { top: -100px; left: -100px; animation: pulse 6s infinite alternate; }
+    body::after  { bottom: -150px; right: -150px; animation: pulse 7s infinite alternate; }
+    @keyframes pulse { from { transform: scale(1); opacity: 0.4; } to { transform: scale(1.2); opacity: 0.7; } }
+    a { color: white; text-decoration: none; }
+
+    header {
+      background: rgba(11,13,43,0.95);
+      backdrop-filter: blur(20px);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+      position: sticky; top: 0; z-index: 10;
+      padding: 20px 0;
+    }
+    header .container {
+      max-width: 1200px; margin: 0 auto;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 0 40px;
+    }
+    .logo {
+      font-size: 28px; font-weight: bold;
+    }
+    .logo span:first-child { color: #00cfff; }
+    .logo span:last-child  { color: #ae6bff; }
+
+    nav {
+      display: flex; gap: 30px;
+    }
+    nav a {
+      font-weight: 500; padding: 8px 16px; border-radius: 8px; transition: .3s;
+    }
+    nav a:hover {
+      background: rgba(0,207,255,0.1); color: #00cfff;
+      box-shadow: 0 0 12px rgba(0,207,255,0.3);
+    }
+
+    /* ===== Hero ===== */
+    .hero {
+      text-align: center; padding: 80px 20px 40px; position: relative; z-index: 2;
+    }
+    .hero h1 {
+      font-size: 36px; margin-bottom: 10px; color: #00cfff;
+    }
+    .hero p {
+      font-size: 18px; color: #ccc; max-width: 800px; margin: 0 auto;
+    }
+
+    /* ===== Social Sign-Up ===== */
+    .auth-container {
+      max-width: 500px; width: 90%; margin: 40px auto 80px;
+      position: relative; z-index: 2; text-align: center;
+    }
+    .social-btn {
+      display: flex; align-items: center; justify-content: center;
+      gap: 8px; width: 100%; padding: 12px; margin-bottom: 16px;
+      border: none; border-radius: 8px; background: white; color: #111;
+      font-size: 16px; cursor: pointer; transition: transform .2s;
+    }
+    .social-btn:hover {
+      transform: translateY(-2px);
+    }
+
+    /* ===== Email Sign-Up ===== */
+    .auth-container form {
+      display: flex; flex-direction: column; gap: 16px;
+    }
+    .auth-container input {
+      width: 100%; padding: 12px 16px; font-size: 16px;
+      border: 2px solid #fff; border-radius: 8px; background: #fff; color: #111;
+      box-sizing: border-box;
+    }
+    .auth-container input::placeholder {
+      color: #888;
+    }
+    .auth-container button.signup {
+      width: 100%; padding: 14px 16px; font-size: 18px;
+      border: none; border-radius: 30px;
+      background: linear-gradient(to right, #00cfff, #ae6bff);
+      color: white; cursor: pointer; transition: transform .3s;
+    }
+    .auth-container button.signup:hover {
+      transform: translateY(-2px);
+    }
+    .signin-link {
+      margin-top: 12px; font-size: 14px; color: #ccc;
+    }
+    .signin-link a:hover {
+      text-decoration: underline;
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      background: rgba(11,13,43,0.95);
+      backdrop-filter: blur(20px);
+      color: #bbb;
+      padding: 60px 20px;
+    }
+    .footer-about, .footer-social {
+      max-width: 800px; margin: 0 auto 40px; text-align: center;
+    }
+    .footer-about h4, .footer-social h4 {
+      color: #00cfff; margin-bottom: 10px; font-size: 20px;
+    }
+    .footer-about p {
+      font-size: 14px; line-height: 1.6;
+    }
+    .social-icons a {
+      margin: 0 10px; font-size: 24px; transition: .3s;
+    }
+    .social-icons a:hover {
+      transform: scale(1.2);
+    }
+    .footer-bottom {
+      text-align: center; border-top: 1px solid #222;
+      padding: 20px 0; color: #777; font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <div class="logo"><span>Immerse</span><span>Blue</span></div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="tools.html">Tools</a>
+        <a href="courses.html">Courses</a>
+        <a href="sign-in.html" class="btn-signin">Sign In</a>
+        <a href="membership.html" class="btn-getstarted">Get Started</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="hero">
+    <h1>Create Your Account</h1>
+    <p>Join us to unlock all AI tools and courses, personalized just for you.</p>
+  </div>
+
+  <div class="auth-container">
+    <!-- Social Buttons -->
+    <button class="social-btn">
+      <i class="fab fa-google"></i> Continue with Google
+    </button>
+    <button class="social-btn">
+      <i class="fab fa-apple"></i> Continue with Apple
+    </button>
+    <p style="margin:16px 0; color:#888;">— or sign up with email —</p>
+
+    <!-- Email Sign-Up Form -->
+    <form>
+      <input type="text" placeholder="Full Name" required>
+      <input type="email" placeholder="Email" required>
+      <input type="password" placeholder="Password" required>
+      <input type="password" placeholder="Confirm Password" required>
+      <button type="submit" class="signup">Sign Up</button>
+      <p class="signin-link">
+        Already have an account? <a href="sign-in.html">Sign In</a>
+      </p>
+    </form>
+  </div>
+
+  <footer>
+    <div class="footer-about">
+      <h4>About ImmerseBlue</h4>
+      <p>ImmerseBlue curates the best AI tools and courses in one place, helping creators and businesses stay ahead in the AI revolution.<br>
+      Founded on a passion for innovation, we believe accessible learning drives progress. Our team handpicks each resource to ensure quality, relevance, and impact.</p>
+    </div>
+    <div class="footer-social">
+      <h4>Follow Us</h4>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#"><i class="fab fa-medium"></i></a>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2025 ImmerseBlue. All rights reserved.</div>
+  </footer>
+
+</body>
+</html>
