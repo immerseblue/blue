@@ -1,12 +1,15 @@
 /* ===== Global Styles ===== */
-body {
+* {
+  box-sizing: border-box;
   margin: 0;
+  padding: 0;
+}
+body {
   font-family: 'Segoe UI', sans-serif;
   background: linear-gradient(to bottom, #0b0d2b, #11133c);
   color: white;
-  position: relative;
   overflow-x: hidden;
-  box-sizing: border-box;
+  position: relative;
 }
 body::before,
 body::after {
@@ -29,17 +32,16 @@ body::after {
   animation: pulse 7s infinite alternate;
 }
 @keyframes pulse {
-  from {
-    transform: scale(1);
-    opacity: .4;
-  }
-  to {
-    transform: scale(1.2);
-    opacity: .7;
-  }
+  from { transform: scale(1); opacity: 0.4; }
+  to   { transform: scale(1.2); opacity: 0.7; }
 }
 
-/* ===== Navbar ===== */
+a {
+  text-decoration: none;
+  color: white;
+}
+
+/* ===== Header/Navbar ===== */
 header {
   background: rgba(11, 13, 43, 0.95);
   backdrop-filter: blur(20px);
@@ -47,7 +49,7 @@ header {
   position: sticky;
   top: 0;
   z-index: 10;
-  padding: 20px 0;
+  padding: 16px 0;
 }
 header .container {
   max-width: 1200px;
@@ -55,28 +57,27 @@ header .container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 40px;
+  flex-wrap: wrap;
+  padding: 0 30px;
 }
 .logo {
   font-size: 28px;
   font-weight: bold;
 }
-.logo span:first-child {
-  color: #00cfff;
-}
-.logo span:last-child {
-  color: #ae6bff;
-}
+.logo span:first-child { color: #00cfff; }
+.logo span:last-child  { color: #ae6bff; }
+
 nav {
   display: flex;
-  justify-content: center;
-  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 20px;
 }
 nav a {
   font-weight: 500;
   padding: 8px 16px;
   border-radius: 8px;
-  transition: .3s;
+  transition: 0.3s;
 }
 nav a:hover,
 nav a.active {
@@ -86,7 +87,6 @@ nav a.active {
 }
 .btn-signin,
 .btn-getstarted {
-  margin: 0;
   font-weight: bold;
   border-radius: 20px;
 }
@@ -150,7 +150,7 @@ nav a.active {
   cursor: pointer;
 }
 
-/* ===== Featured Grids Section ===== */
+/* ===== Featured Section ===== */
 .section-title {
   text-align: center;
   font-size: 32px;
@@ -173,7 +173,7 @@ nav a.active {
   border-radius: 20px;
   width: 260px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
-  transition: .3s;
+  transition: 0.3s;
 }
 .preview-card:hover {
   transform: translateY(-6px) scale(1.02);
@@ -197,13 +197,15 @@ nav a.active {
   border-radius: 20px;
   background: linear-gradient(to right, #00cfff, #ae6bff);
   font-weight: bold;
-  transition: .3s;
+  color: white; /* FIXED COLOR */
+  transition: 0.3s;
 }
 .preview-card a:hover {
   background: linear-gradient(to right, #ae6bff, #00cfff);
+  color: white;
 }
 
-/* ===== Footer Section ===== */
+/* ===== Footer ===== */
 footer {
   background: rgba(11, 13, 43, 0.95);
   backdrop-filter: blur(20px);
@@ -229,7 +231,7 @@ footer {
 .social-icons a {
   margin: 0 10px;
   font-size: 24px;
-  transition: .3s;
+  transition: 0.3s;
 }
 .social-icons a:hover {
   transform: scale(1.2);
@@ -242,31 +244,22 @@ footer {
   font-size: 14px;
 }
 
-/* ===== Responsive Design ===== */
-
-/* Mobile (Portrait) */
-@media (max-width: 600px) {
-  .logo {
-    font-size: 22px;
+/* ===== Responsive Fixes ===== */
+@media (max-width: 768px) {
+  header .container {
+    flex-direction: column;
+    gap: 10px;
+    padding: 0 20px;
   }
 
   nav {
-    flex-direction: column;
-    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
   }
 
-  .hero h1 {
-    font-size: 32px;
-  }
-
-  .hero p {
-    font-size: 16px;
-  }
-
-  .search-bar {
-    width: 100%;
-    max-width: 100%;
-  }
+  .hero h1 { font-size: 32px; }
+  .hero p  { font-size: 16px; }
 
   .preview-grid {
     flex-direction: column;
@@ -275,58 +268,14 @@ footer {
 
   .preview-card {
     width: 100%;
-    margin-bottom: 20px;
   }
 
-  footer {
-    padding: 40px 20px;
+  .search-bar {
+    width: 90%;
+    flex-direction: row;
   }
 
   .footer-about p {
-    font-size: 12px;
+    font-size: 13px;
   }
 }
-
-/* Tablet (Portrait & Landscape) */
-@media (min-width: 601px) and (max-width: 1024px) {
-  .hero h1 {
-    font-size: 36px;
-  }
-
-  .hero p {
-    font-size: 18px;
-  }
-
-  .preview-grid {
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-
-  .preview-card {
-    width: 45%;
-  }
-
-  footer {
-    padding: 50px 20px;
-  }
-}
-
-/* Laptop and Desktop */
-@media (min-width: 1025px) {
-  .hero h1 {
-    font-size: 48px;
-  }
-
-  .hero p {
-    font-size: 20px;
-  }
-
-  .preview-card {
-    width: 260px;
-  }
-
-  footer {
-    padding: 60px 20px;
-  }
-}
-
