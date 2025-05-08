@@ -6,7 +6,9 @@
 }
 html, body {
   width: 100%;
-  overflow-x: hidden; /* ✅ Prevent horizontal scroll */
+  max-width: 100%;
+  overflow-x: hidden !important;
+  touch-action: manipulation;
 }
 body {
   font-family: 'Segoe UI', sans-serif;
@@ -38,7 +40,6 @@ body::after {
   from { transform: scale(1); opacity: 0.4; }
   to   { transform: scale(1.2); opacity: 0.7; }
 }
-
 a {
   text-decoration: none;
   color: white;
@@ -55,14 +56,13 @@ header {
   padding: 20px 0;
 }
 header .container {
-  max-width: 1200px;
+  max-width: 100%;
   margin: 0 auto;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
   flex-wrap: wrap;
-  padding: 0 40px;
-  width: 100%;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
 }
 .logo {
   font-size: 28px;
@@ -73,9 +73,9 @@ header .container {
 
 nav {
   display: flex;
-  justify-content: center;
-  gap: 30px;
   flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
 }
 nav a {
   font-weight: 500;
@@ -132,6 +132,7 @@ nav a.active {
 /* ===== Search Bar ===== */
 .search-bar {
   max-width: 700px;
+  width: 90%;
   margin: 0 auto 60px;
   display: flex;
   background: white;
@@ -169,14 +170,15 @@ nav a.active {
   flex-wrap: wrap;
   justify-content: center;
   gap: 30px;
-  padding: 0 40px 60px;
+  padding: 0 20px 60px;
 }
 .preview-card {
   background: rgba(17, 19, 60, 0.6);
   backdrop-filter: blur(12px);
   padding: 20px;
   border-radius: 20px;
-  width: 260px;
+  width: 100%;
+  max-width: 260px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
   transition: 0.3s;
   text-align: center;
@@ -252,6 +254,7 @@ footer {
 @media (max-width: 768px) {
   html, body {
     overflow-x: hidden;
+    max-width: 100%;
   }
 
   header .container {
@@ -283,11 +286,8 @@ footer {
 
   .preview-card {
     width: 100%;
+    max-width: 100%;
     padding: 24px 16px;
-  }
-
-  .preview-card a {
-    margin-top: 12px;
   }
 
   .footer-about p {
